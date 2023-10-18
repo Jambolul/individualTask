@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./app-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="apple-touch-icon"
+      href="./icons/icon-192x192.png"
+      sizes="192x192"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <script src="./src/main.ts" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/faad1f5588.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="./dist/main.css" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <div class="darkTheme">
+            <input type="checkbox" class="checkbox" id="checkbox" />
+            <label for="checkbox" class="checkbox-label">
+              <i class="fa-solid fa-sun"></i>
+              <i class="fa-solid fa-moon"></i>
+              <span class="ball"></span>
+            </label>
+          </div>
+        </li>
+
+        <li>
+          <button>
+            <i class="fa-regular fa-id-card" id="register"> </i>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fa-solid fa-right-to-bracket" id="login"></i>
+          </button>
+        </li>
+        <li>
+        <div class="avatar">
+          <img id="avatarBubble" src="" alt="Avatar" />
+        </div>
+      </li>
+      </ul>
+    </nav>
+    <main>
+      <div id="menut">
+        <h2>Choose either the Daily or weekly menu</h2>
+        <div class="flex flex-space-between">
+          <button id="daily">Daily</button>
+        </div>
+        <div class="flex flex-space-between">
+          <button id="weekly">Weekly</button>
+        </div>
+      </div>
+      <div id="filters">
+        <div class="search-container"></div>
+        <h2>Search restaurants by city</h2>
+          <input id="search" type="text" placeholder="Search.." name="search" />
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+        </tr>
+        <!-- add restaurants here -->
+      </table>
+    </main>
+
+    <dialog id="registerDialog">
+      <h2>Register</h2>
+      <form class="registerForm">
+        <div class="form-control">
+          <label for="registerUsername">Username (min 3 chars): </label>
+          <input
+            type="text"
+            name="registerUsername"
+            autocomplete="name"
+            id="registerUsername"
+            placeholder="name here"
+            minlength="3"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@metropolia.fi"
+            required
+            pattern=".+@metropolia\.fi"
+          />
+        </div>
+
+        <div class="form-control">
+          <label for="registerPwd">Password:</label>
+          <input
+            type="password"
+            name="registerPwd"
+            id="registerPwd"
+            placeholder="password here"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"
+            minlength="6"
+          />
+        </div>
+        <div class="flex flex-space-between">
+          <button id="close_register" type="button">Close</button>
+          <button type="submit">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="loginDialog">
+      <section id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-control">
+            <label for="username">Usename:</label>
+            <input id="username" type="text" name="username" />
+          </div>
+          <div class="form-control">
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" />
+          </div>
+          <div class="flex flex-space-between">
+            <button id="close_login" type="button">Close</button>
+            <button type="submit">Confirm</button>
+          </div>
+        </form>
+      </section>
+    </dialog>
+
+    <dialog id="menuDialog">
+      <!-- add restaurant info here when restaurant is clicked -->
+    </dialog>
+    <dialog id="profileDialog">
+      <section id="profile">
+        <div class="profileInfo">
+          <div class="profileInfo-content">
+            <h2>Profile</h2>
+            <p>Username: <span id="username-target"></span></p>
+            <p>email: <span id="email-target"></span></p>
+            <img id="avatar-target" src="" alt="Avatar" />
+          </div>
+        </div>
+        <div class="profileEdit">
+          <div class="profileEdit-content">
+            <h2>Edit profile</h2>
+            <form id="profile-form">
+              <div class="form-control">
+                <label for="profile-username">Username</label>
+                <input id="profile-username" type="text" name="username" />
+              </div>
+              <div class="form-control">
+                <label for="profile-email">Email</label>
+                <input id="profile-email" type="email" name="email" />
+              </div>
+              <div class="form-control">
+                <input type="submit" value="Update" class="button" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="profileAvatar">
+          <div class="profileAvatar-content">
+            <h2>Upload avatar</h2>
+            <form id="avatar-form">
+              <div class="form-control">
+                <input id="avatar" type="file" name="avatar" />
+              </div>
+              <div class="form-control">
+                <input type="submit" value="Upload" class="button" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <button id="close_profile" type="button">Close</button>
+
+    </dialog>
+  </body>
+
+  <script></script>
+</html>
