@@ -1,11 +1,397 @@
+:root {
+  --primary-color: #F2AE2E;
+  --secondary-color: #8C4303;
+  --tertiary-color: #D99B66;
+  --accent-color: #732C02;
+  --complementary-color: #401201;
+  --body-background: #b4a699;
+  --dialog-background: #cfb6a0;
+  --nav-background: #532414;
+  --text-color: #050505;
+  --text-color-light: #cccccc;
+}
+
 body {
-  background-color: #f0f0f0;
+  font-family: Montserrat, sans-serif;
+  background-color: var(--body-background);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  transition: background .2s linear;
 }
 
+h2 {
+  color: var(--text-color);
+}
 
+nav {
+  background-color: var(--nav-background);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  display: flex;
+  overflow: hidden;
+  margin: 10px;
+  padding: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: all .15s linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+  border: 0 none;
+  border-radius: 36px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: 2px solid black;
+}
+
+button:hover {
+  transition: all .15s linear;
+  opacity: 0.85;
+}
+
+li {
+  float: left;
+  margin: 0 20px;
+}
+
+li button {
+  font-size: 20px;
+}
+
+li i {
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+}
+
+body.dark {
+  background-color: #292c35;
+  color: #d3d3d3;
+}
+
+body.dark h2 {
+  color: var(--text-color-light);
+}
+
+body.dark nav {
+  background-color: #1a1b1f;
+}
+
+.checkbox {
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 40px;
+  height: 15px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 1px;
+  top: 0;
+  border-radius: 50%;
+  transition: transform .2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translate(24px);
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: var(--primary-color-light);
+  background-color: var(--secondary-color);
+}
+
+#avatarBubble {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#search {
+  width: 250px;
+  height: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+#search:focus {
+  background-color: #fafad2;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+#menut {
+  margin: 30px;
+}
+
+#profile {
+  display: grid;
+  gap: 20px;
+  max-width: 1000px;
+  width: 90%;
+  margin: 30px auto 0;
+  padding: 20px;
+  grid-template-areas:
+    "info info"
+    "edit avatar";
+}
+
+#open_dialog {
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex button {
+  margin: 8px auto;
+}
+
+.userForm {
+  margin: 30px;
+}
+
+.form-control input {
+  width: 90%;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: #fff;
+}
+
+.form-control input:focus {
+  background-color: #fafad2;
+}
+
+#loginDialog .form-control input:focus,
+#registerDialog .form-control input:focus {
+  background-color: #fafad2;
+  border: 2px solid #161616;
+  color: #161616;
+}
+
+.dialogField,
+.form-control {
+  margin: 10px auto;
+  font-weight: 700;
+}
+
+#filters {
+  margin: 30px;
+}
+
+.profileInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: info;
+}
+
+.profileEdit {
+  grid-area: edit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileAvatar {
+  grid-area: avatar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profileDialog {
+  background-color: var(--dialog-background);
+  border-radius: 6px;
+  max-width: 1000px;
+  width: 97%;
+  padding: 10px;
+}
+
+#registerDialog {
+  position: absolute;
+  background-color: var(--dialog-background);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 10px #0000004d;
+}
+
+#loginDialog {
+  position: absolute;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--dialog-background);
+  text-align: center;
+  box-shadow: 0 0 10px #000
+}
+
+#menuDialog {
+  background-color: var(--dialog-background);
+  color: var(--text-color);
+  max-height: 90%;
+}
+
+#menuDialog th {
+  background-color: var(--tertiary-color);
+  border-bottom: 2px solid #000000;
+}
+
+#loginDialog .form-control,
+#registerDialog .form-control {
+  margin: 25px auto;
+  font-weight: 700;
+}
+
+input {
+  color: #000;
+}
+
+.profileEdit input,
+#loginDialog input,
+#registerDialog input {
+  color: #000;
+  opacity: 0.8;
+  width: 90%;
+  padding: 10px;
+  border: 2px solid black;
+  background-color: #fff;
+}
+
+.profileInfo,
+.profileAvatar,
+.profileEdit {
+  border-radius: 4px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  border: none;
+  border: solid rgb(15, 15, 15);
+  box-shadow: 0 4px 8px #15151533;
+}
+
+.profileInfo-content,
+.profileAvatar-content,
+.profileEdit-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#close_profile {
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#avatar-target {
+  width: 200px;
+}
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
 
 table {
   border-collapse: collapse;
@@ -17,7 +403,7 @@ table {
 th {
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
-  font-weight: normal;
+  font-weight: 400;
   padding: 0.5em 1em;
   text-align: left;
 }
@@ -28,11 +414,48 @@ td {
 }
 
 .highlight {
-  font-weight: bold;
-  background-color: rgb(194, 194, 235);
+  font-weight: 700;
+  background-color: var(--secondary-color);
+  color: #000;
 }
 
 .closest {
-  color: #000000;
-  background-color: #88cddf8a;
+  color: #000;
+  background-color: var(--primary-color);
+}
+
+dialog::backdrop {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 0.8em;
+  }
+  ul li {
+    margin: 0 5px;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  #registerDialog,
+  #loginDialog {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #profile {
+    grid-template-areas: "info" "edit" "avatar";
+    padding: 0;
+    margin: 30px auto 10px;
+  }
+  #menuDialog th,
+  #menuDialog td {
+    padding: 8px 6px;
+  }
+  #menuDialog {
+    padding: 5px;
+  }
 }
